@@ -14,7 +14,7 @@ public class TestBstMain {
         System.out.println("最小值："+bst.minmum());
         System.out.println("最大值："+bst.maxnmum());
         bst.removeMin();
-        bst.removeMax();
+        bst.remove(4);
         System.out.println(bst);
     }
 }

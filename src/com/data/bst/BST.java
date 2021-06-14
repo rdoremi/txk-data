@@ -37,7 +37,7 @@ public class BST<E extends Comparable<E>> {
         root = add(root, e);
     }
 
-    public Node add(Node node, E e) {
+    private Node add(Node node, E e) {
 
         if (node == null) {
             size++;
@@ -157,6 +157,40 @@ public class BST<E extends Comparable<E>> {
         }
         node.right =  removeMax(node.right);
         return node;
+    }
+    public void remove(E e){
+        remove(root,e);
+    }
+    private Node remove(Node node,E e){
+        if (node == null){
+            return null;
+        }
+        if (e.compareTo(node.e)<0){
+          node.left = remove(node.left,e);
+          return node;
+        }else if (e.compareTo(node.e)>0){
+            node.right = remove(node.right,e);
+            return node;
+        }else {
+            if (node.left == null){
+                Node rightNode = node.right;
+                node.right = null;
+                size--;
+                return rightNode;
+            }
+            if (node.right == null){
+                Node leftNode = node.left;
+                node.left = null;
+                size--;
+                return leftNode;
+            }
+            Node successor = minmum(node.right);
+            successor.right = removeMin(node.right);
+            successor.left = node.left;
+            node.left = node.right = null;
+            return successor;
+        }
+
     }
     public E minmum(){
         Node node = minmum(root);

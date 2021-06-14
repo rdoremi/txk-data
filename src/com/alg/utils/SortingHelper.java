@@ -33,7 +33,14 @@ public class SortingHelper {
         method.invoke(null,new Object[]{ arr});
         long end = System.nanoTime();
         double time = (end - start) / 1000000000.0;
-        System.out.println(className+"."+methodName+"-> "+n+"条数据用时: "+time+"秒");
+        boolean sortNot = false;
+        for (int i = 1; i < arr.length; i++) {
+            if (arr[i-1]>arr[i]){
+                sortNot = true;
+            }
+        }
+        String successSort = sortNot?"失败":"成功";
+        System.out.println(className+"."+methodName+"-> "+n+"条数据用时: "+time+"秒, 排序"+successSort);
 
     }
 }

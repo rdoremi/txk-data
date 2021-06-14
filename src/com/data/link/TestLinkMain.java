@@ -12,8 +12,11 @@ public class TestLinkMain {
         linkedList.removeLast();
         linkedList.removeFirst();
         System.out.println(linkedList);
+        linkedList.removeElement(8);
+        System.out.println(linkedList);
         System.out.println(linkedList.getSize());
         System.out.println(linkedList.contains(3));
         System.out.println(linkedList.get(4));
+
     }
 }

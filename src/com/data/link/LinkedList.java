@@ -106,6 +106,30 @@ public class LinkedList<E> {
         }
         return false;
     }
+    public void removeElement(E e){
+
+        Node cur = dummyhead;
+        while (cur.next!=null){
+
+
+            if (cur.next.e.equals(e)){
+
+                break;
+            }
+            cur = cur.next;
+        }
+        if (cur.next!=null){
+            Node node = cur.next;
+            cur.next = node.next;
+            node.next = null;
+            size--;
+        }
+
+
+
+
+    }
+
     public E remove(int index){
         if (index > size || index < 0) {
             throw new IllegalArgumentException("参数错误");
