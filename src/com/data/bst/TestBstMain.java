@@ -11,10 +11,11 @@ public class TestBstMain {
         bst.add(4);
         bst.add(2);
 //        bst.levelOrder();
-        System.out.println("最小值："+bst.minmum());
+       /* System.out.println("最小值："+bst.minmum());
         System.out.println("最大值："+bst.maxnmum());
         bst.removeMin();
         bst.remove(4);
-        System.out.println(bst);
+        System.out.println(bst);*/
+        bst.preOrderNR();
     }
 }

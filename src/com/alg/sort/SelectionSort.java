@@ -7,10 +7,6 @@ public class SelectionSort {
     private SelectionSort() {
     }
 
-    public static void demo(Integer[] arr) {
-        System.out.println(arr.length);
-    }
-
     public static <E extends Comparable<E>> void sort(E[] arr) {
 
         for (int i = 0; i < arr.length; i++) {

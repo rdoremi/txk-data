@@ -2,6 +2,7 @@ package com.data.bst;
 
 import java.util.LinkedList;
 import java.util.Queue;
+import java.util.Stack;
 
 public class BST<E extends Comparable<E>> {
 
@@ -50,6 +51,22 @@ public class BST<E extends Comparable<E>> {
         }
 
         return node;
+    }
+    //前序遍历非递归实现
+    public void preOrderNR(){
+        Stack<Node> stack = new Stack<>();
+        stack.push(root);
+        while (!stack.isEmpty()){
+            Node cur = stack.pop();
+            System.out.println(cur.e);
+            if (cur.right!=null){
+                stack.push(cur.right);
+            }
+           if (cur.left!=null){
+               stack.push(cur.left);
+           }
+
+        }
     }
 
     public void preOrder() {
@@ -171,7 +188,7 @@ public class BST<E extends Comparable<E>> {
         }else if (e.compareTo(node.e)>0){
             node.right = remove(node.right,e);
             return node;
-        }else {
+        }else {  //e.compareTo(node.e) == 0
             if (node.left == null){
                 Node rightNode = node.right;
                 node.right = null;
@@ -233,7 +250,7 @@ public class BST<E extends Comparable<E>> {
         int tabs = 3;
         StringBuilder str = new StringBuilder();
 
-        Queue<Node> queue = new LinkedList<>();
+        Queue<Node> queue = new DoubleLinkedList<>();
         queue.add(root);
         while (!queue.isEmpty()){
             Node cur = queue.remove();

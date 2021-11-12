@@ -42,7 +42,7 @@ public class LinkedListMap<K, V> implements Map<K, V> {
 //        Node node = new Node(key,value,dummyHead.next);
 
 //        node.next = dummyHead.next;
-        dummyHead.next = new Node(key, value, dummyHead.next);
+        dummyHead.next = new Node(key, value, dummyHead.next);//链表头添加数据
         size++;
     }
 
